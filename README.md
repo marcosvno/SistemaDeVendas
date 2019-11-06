@@ -4,5 +4,5 @@ Componentes:Darlan Richard
             Jadson Raphael
             Jennifer Beatriz
             Marcos Vinicius
-            Ramon Vieira
+            Ramon De Sousa Vieira
             Vinícius Silva  
