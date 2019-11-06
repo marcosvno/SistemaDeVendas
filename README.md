@@ -6,3 +6,5 @@ Componentes:Darlan Richard
             Marcos Vinicius
             Ramon De Sousa Vieira
             Vinícius Silva  
+
+-- ESTA VERSÃO É DESTINADA A DESENVOLVIMENTO
