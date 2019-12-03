@@ -856,7 +856,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(caixaQuantidadeItensCadastrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoFinalizarCompraCadastrado)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         telaVendas.add(telaClienteCadastrado, "card2");
@@ -958,7 +958,7 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(botaoClienteCadastrado)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoClienteNaoCadastrado))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         PainelVendaLayout.setVerticalGroup(
             PainelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -982,7 +982,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(botaoClienteCadastrado)
                     .addComponent(botaoClienteNaoCadastrado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(telaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(telaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -1044,19 +1044,20 @@ public class Menu extends javax.swing.JFrame {
         PainelSenhaLayout.setHorizontalGroup(
             PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelSenhaLayout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addGroup(PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSenha)
-                    .addComponent(txtSenha3)
-                    .addComponent(txtSenha2)
-                    .addComponent(campoSenhaConfirmacao)
-                    .addComponent(campoSenhaNova)
-                    .addComponent(campoSenhaNovaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelSenhaLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSenha)
+                            .addComponent(txtSenha3)
+                            .addComponent(txtSenha2)
+                            .addComponent(campoSenhaConfirmacao)
+                            .addComponent(campoSenhaNova)
+                            .addComponent(campoSenhaNovaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PainelSenhaLayout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(botaoAlterarSenha)))
                 .addContainerGap(167, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelSenhaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoAlterarSenha)
-                .addGap(216, 216, 216))
         );
         PainelSenhaLayout.setVerticalGroup(
             PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1550,20 +1551,16 @@ public class Menu extends javax.swing.JFrame {
         if (contadorItens > 0) {
             if (contadorItens + 1 == quantidadeCarrinho.size()) {
                 botaoAvancarCarrinho.setEnabled(false);
-                System.out.println("1 t");
             }
             if (contadorItens == quantidadeCarrinho.size()) {
                 botaoAvancarCarrinho.setEnabled(false);
-                System.out.println("2 t");
             }
         }
         if (contadorItens + 1 == quantidadeCarrinho.size()) {
             botaoAvancarCarrinho.setEnabled(false);
-            System.out.println("1 t");
         }
         if (contadorItens == quantidadeCarrinho.size()) {
             botaoAvancarCarrinho.setEnabled(false);
-            System.out.println("2 t");
         }
         if (quantidadeCarrinho.size() == 0 || quantidadeCarrinho.size() == 1) {
             botaoVoltarCarrinho.setEnabled(false);
@@ -1734,9 +1731,7 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         }
-        for (int i = 0; i < nomeCliente.size(); i++) {
-            System.out.println("Nome: " + nomeCliente.get(i) + "\n CPF: " + cpfCliente.get(i) + "\n Possui: " + pontosCliente.get(i) + " pontos");
-        }
+        JOptionPane.showMessageDialog(rootPane, "COMPRA REALIZADA COM SUCESSO");
     }//GEN-LAST:event_botaoFinalizarCompraCadastradoActionPerformed
 
     private void campoCpfCadastradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCpfCadastradoActionPerformed
@@ -1814,10 +1809,7 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         }
-
-        for (int i = 0; i < nomeCliente.size(); i++) {
-            System.out.println("Nome: " + nomeCliente.get(i) + "\n CPF: " + cpfCliente.get(i) + "\n Possui: " + pontosCliente.get(i) + " pontos");
-        }
+        JOptionPane.showMessageDialog(rootPane, "COMPRA REALIZADA COM SUCESSO");
     }//GEN-LAST:event_botaoFinalizarCompraCadastroActionPerformed
 
     private void pontosCampoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pontosCampoNomeActionPerformed
@@ -1934,7 +1926,6 @@ public class Menu extends javax.swing.JFrame {
                 pontosCliente.set(j, n);
                 campoPontosCliente.setText(Integer.toString(pontosCliente.get(j)));
                 JOptionPane.showMessageDialog(rootPane, "TROCA REALIZADA");
-                System.out.println("Nome: " + nomeCliente.get(j) + "\n CPF: " + cpfCliente.get(j) + "\n Possui: " + pontosCliente.get(j) + " pontos");
             }
         }
 
