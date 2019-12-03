@@ -14,6 +14,19 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
     Usuario usuario = new Usuario();
+    
+    public void alterarLogin(String log){
+        usuario.setLogin(log);
+    }
+    public void alterarSenha(String pass){
+        usuario.setSenha(pass);
+    }
+    public String pegarLogin(){
+        return usuario.getLogin();
+    }
+    public String pegarSenha(){
+        return usuario.getSenha();
+    }
     /**
      * Creates new form Login
      */

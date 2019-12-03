@@ -39,6 +39,9 @@ public class Menu extends javax.swing.JFrame {
     ArrayList<String> cpfCliente = new ArrayList();
     ArrayList<Integer> pontosCliente = new ArrayList();
     
+    int valorInicial = 4000;
+    int capital = valorInicial;
+    
     /**
      * Creates new form Menu
      */
@@ -146,8 +149,23 @@ public class Menu extends javax.swing.JFrame {
         campoCpfCadastro = new javax.swing.JFormattedTextField();
         botaoFinalizarCompraCadastro = new javax.swing.JButton();
         PainelFundos = new javax.swing.JPanel();
+        txtFundoPossui = new javax.swing.JLabel();
+        txtDinheiroAtual = new javax.swing.JLabel();
+        txtDinheiroInicial = new javax.swing.JLabel();
         PainelSenha = new javax.swing.JPanel();
+        campoSenhaConfirmacao = new javax.swing.JPasswordField();
+        txtSenha3 = new javax.swing.JLabel();
+        campoSenhaNova = new javax.swing.JPasswordField();
+        campoSenhaNovaConfirmacao = new javax.swing.JPasswordField();
+        txtSenha2 = new javax.swing.JLabel();
+        botaoAlterarSenha = new javax.swing.JButton();
+        txtSenha = new javax.swing.JLabel();
         PainelLogin = new javax.swing.JPanel();
+        campoLoginConfirmacao = new javax.swing.JTextField();
+        txtLogin1 = new javax.swing.JLabel();
+        txtLogin2 = new javax.swing.JLabel();
+        campoLoginNovo = new javax.swing.JTextField();
+        botaoAlterarLogin = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Produtos = new javax.swing.JMenu();
         mnuCadastro = new javax.swing.JMenuItem();
@@ -498,9 +516,9 @@ public class Menu extends javax.swing.JFrame {
         PainelEstoqueLayout.setHorizontalGroup(
             PainelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelEstoqueLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         PainelEstoqueLayout.setVerticalGroup(
             PainelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,8 +595,8 @@ public class Menu extends javax.swing.JFrame {
         PainelCarrinho.setLayout(PainelCarrinhoLayout);
         PainelCarrinhoLayout.setHorizontalGroup(
             PainelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelCarrinhoLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelCarrinhoLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(botaoVoltarCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PainelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -602,12 +620,12 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(botaoEditarCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoLojaCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
         PainelCarrinhoLayout.setVerticalGroup(
             PainelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelCarrinhoLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelCarrinhoLayout.createSequentialGroup()
+                .addContainerGap(142, Short.MAX_VALUE)
                 .addGroup(PainelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel14))
@@ -624,7 +642,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(botaoLojaCarrinho))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSalvarCarrinho)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
         );
 
         jPanel3.add(PainelCarrinho, "card8");
@@ -667,7 +685,7 @@ public class Menu extends javax.swing.JFrame {
         PainelGerenciamentoLayout.setHorizontalGroup(
             PainelGerenciamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelGerenciamentoLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(98, 98, 98)
                 .addGroup(PainelGerenciamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelGerenciamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PainelGerenciamentoLayout.createSequentialGroup()
@@ -693,12 +711,12 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(100, 100, 100)
                         .addComponent(botaoAdicionarEstoque)
                         .addGap(72, 72, 72)))
-                .addGap(105, 105, 105))
+                .addGap(98, 98, 98))
         );
         PainelGerenciamentoLayout.setVerticalGroup(
             PainelGerenciamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelGerenciamentoLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
@@ -716,7 +734,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(quantidadeGerenciamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(botaoAdicionarEstoque)
-                .addGap(43, 43, 43))
+                .addGap(42, 42, 42))
         );
 
         jPanel3.add(PainelGerenciamento, "card5");
@@ -838,7 +856,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(caixaQuantidadeItensCadastrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoFinalizarCompraCadastrado)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         telaVendas.add(telaClienteCadastrado, "card2");
@@ -909,7 +927,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(campoCpfCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoFinalizarCompraCadastro)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         telaVendas.add(telaClienteNaoCadastrado, "card3");
@@ -945,7 +963,7 @@ public class Menu extends javax.swing.JFrame {
         PainelVendaLayout.setVerticalGroup(
             PainelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelVendaLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(PainelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -964,48 +982,159 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(botaoClienteCadastrado)
                     .addComponent(botaoClienteNaoCadastrado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(telaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(telaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
         jPanel3.add(PainelVenda, "card4");
 
         PainelFundos.setPreferredSize(new java.awt.Dimension(590, 369));
 
+        txtFundoPossui.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtFundoPossui.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFundoPossui.setText("O fundo da empresa possui:");
+
+        txtDinheiroAtual.setFont(new java.awt.Font("Tahoma", 0, 47)); // NOI18N
+        txtDinheiroAtual.setText("4000R$");
+
+        txtDinheiroInicial.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        txtDinheiroInicial.setText("Valor inicial: 4000");
+
         javax.swing.GroupLayout PainelFundosLayout = new javax.swing.GroupLayout(PainelFundos);
         PainelFundos.setLayout(PainelFundosLayout);
         PainelFundosLayout.setHorizontalGroup(
             PainelFundosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(PainelFundosLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addGroup(PainelFundosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtDinheiroInicial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDinheiroAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFundoPossui, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         PainelFundosLayout.setVerticalGroup(
             PainelFundosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(PainelFundosLayout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(txtFundoPossui)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDinheiroAtual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDinheiroInicial)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jPanel3.add(PainelFundos, "card5");
+
+        txtSenha3.setText(" Confirme a Senha:");
+
+        txtSenha2.setText(" Senha nova:");
+
+        botaoAlterarSenha.setText("Alterar");
+        botaoAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarSenhaActionPerformed(evt);
+            }
+        });
+
+        txtSenha.setText("Senha antiga:");
 
         javax.swing.GroupLayout PainelSenhaLayout = new javax.swing.GroupLayout(PainelSenha);
         PainelSenha.setLayout(PainelSenhaLayout);
         PainelSenhaLayout.setHorizontalGroup(
             PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(PainelSenhaLayout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addGroup(PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSenha)
+                    .addComponent(txtSenha3)
+                    .addComponent(txtSenha2)
+                    .addComponent(campoSenhaConfirmacao)
+                    .addComponent(campoSenhaNova)
+                    .addComponent(campoSenhaNovaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(167, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelSenhaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoAlterarSenha)
+                .addGap(216, 216, 216))
         );
         PainelSenhaLayout.setVerticalGroup(
             PainelSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(PainelSenhaLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(txtSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoSenhaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtSenha2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtSenha3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoSenhaNovaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botaoAlterarSenha)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jPanel3.add(PainelSenha, "card7");
+
+        campoLoginConfirmacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoLoginConfirmacaoActionPerformed(evt);
+            }
+        });
+
+        txtLogin1.setText("Antigo Login:");
+
+        txtLogin2.setText("Novo Login:");
+
+        campoLoginNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoLoginNovoActionPerformed(evt);
+            }
+        });
+
+        botaoAlterarLogin.setText("Alterar");
+        botaoAlterarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PainelLoginLayout = new javax.swing.GroupLayout(PainelLogin);
         PainelLogin.setLayout(PainelLoginLayout);
         PainelLoginLayout.setHorizontalGroup(
             PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(PainelLoginLayout.createSequentialGroup()
+                .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelLoginLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoLoginConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoLoginNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLogin1)
+                            .addComponent(txtLogin2)))
+                    .addGroup(PainelLoginLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(botaoAlterarLogin)))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
         PainelLoginLayout.setVerticalGroup(
             PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(PainelLoginLayout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addComponent(txtLogin1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoLoginConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(txtLogin2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoLoginNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botaoAlterarLogin)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         jPanel3.add(PainelLogin, "card6");
@@ -1367,6 +1496,16 @@ public class Menu extends javax.swing.JFrame {
         for (int i = 0; i < maxProds; i++) {
             if (nomeProduto[i] == nome) {
                 quantidadeProduto[i] += Integer.parseInt(quantidadeGerenciamento.getText());
+                
+                capital -= (Integer.parseInt(valorGerenciamento.getText()) * Integer.parseInt(quantidadeGerenciamento.getText()));
+                txtDinheiroAtual.setText(capital + "R$");
+                if (capital < valorInicial) {
+                    txtDinheiroAtual.setForeground(Color.red);
+                } else if (capital > valorInicial) {
+                    txtDinheiroAtual.setForeground(Color.green);
+                } else {
+                    txtDinheiroAtual.setForeground(Color.black);
+                }
             }
         }
 
@@ -1570,6 +1709,16 @@ public class Menu extends javax.swing.JFrame {
                 if (produtoCarrinho.get(i).equals(nomeProduto[j])) {
                     quantidadeProduto[j] -= Integer.parseInt(quantidadeCarrinho.get(i));
 
+                    capital += (precoProduto[j] * Integer.parseInt(quantidadeCarrinho.get(i)));
+                    txtDinheiroAtual.setText(capital + "R$");
+                    if (capital < valorInicial) {
+                        txtDinheiroAtual.setForeground(Color.red);
+                    } else if (capital > valorInicial) {
+                        txtDinheiroAtual.setForeground(Color.green);
+                    } else {
+                        txtDinheiroAtual.setForeground(Color.black);
+                    }
+                    
                     for (int k = 0; k < contaProds; k++) {
                         if (nomeProduto[j].equals(tabela.getValueAt(k, 0))) {
                             tabela.setValueAt(quantidadeProduto[k], k, 2);
@@ -1640,6 +1789,15 @@ public class Menu extends javax.swing.JFrame {
                 if (produtoCarrinho.get(i).equals(nomeProduto[j])) {
                     quantidadeProduto[j] -= Integer.parseInt(quantidadeCarrinho.get(i));
 
+                    capital += (precoProduto[j] * Integer.parseInt(quantidadeCarrinho.get(i)));
+                    txtDinheiroAtual.setText(capital + "R$");
+                    if (capital < valorInicial) {
+                        txtDinheiroAtual.setForeground(Color.red);
+                    } else if (capital > valorInicial) {
+                        txtDinheiroAtual.setForeground(Color.green);
+                    } else {
+                        txtDinheiroAtual.setForeground(Color.black);
+                    }
 
                     for (int k = 0; k < contaProds; k++) {
                         if (nomeProduto[j].equals(tabela.getValueAt(k, 0))) {
@@ -1796,6 +1954,48 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_caixaItemPontosActionPerformed
 
+    private void botaoAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarSenhaActionPerformed
+        if (!campoSenhaConfirmacao.getText().equals(login.pegarSenha())) {
+            JOptionPane.showMessageDialog(rootPane, "SENHA ANTIGA INCORRETO");
+            return;
+        }
+        if (campoSenhaNova.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "DIGITE UMA SENHA");
+            return;
+        }
+        if (campoSenhaNovaConfirmacao.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "CONFIRME SUA SENHA NOVA");
+            return;
+        }
+        if (!campoSenhaNova.getText().equals(campoSenhaNovaConfirmacao.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "OS CAMPOS DE SENHA NOVA NÃO COINCIDEM");
+            return;
+        }
+        login.alterarSenha(campoSenhaNova.getText());
+        JOptionPane.showMessageDialog(rootPane, "SENHA ALTERADO COM SUCESSO");
+    }//GEN-LAST:event_botaoAlterarSenhaActionPerformed
+
+    private void campoLoginConfirmacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginConfirmacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoLoginConfirmacaoActionPerformed
+
+    private void campoLoginNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoLoginNovoActionPerformed
+
+    private void botaoAlterarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarLoginActionPerformed
+        if (!campoLoginConfirmacao.getText().equals(login.pegarLogin())) {
+            JOptionPane.showMessageDialog(rootPane, "LOGIN ANTIGO INCORRETO");
+            return;
+        }
+        if (campoLoginNovo.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "DIGITE UM LOGIN");
+            return;
+        }
+        login.alterarLogin(campoLoginNovo.getText());
+        JOptionPane.showMessageDialog(rootPane, "LOGIN ALTERADO COM SUCESSO");
+    }//GEN-LAST:event_botaoAlterarLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1848,7 +2048,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu Produtos;
     private javax.swing.JButton adicionarCesta;
     private javax.swing.JToggleButton botaoAdicionarEstoque;
+    private javax.swing.JButton botaoAlterarLogin;
     private javax.swing.JToggleButton botaoAlterarPontos;
+    private javax.swing.JButton botaoAlterarSenha;
     private javax.swing.JButton botaoAvancarCarrinho;
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JRadioButton botaoClienteCadastrado;
@@ -1871,9 +2073,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField campoCpfCadastrado;
     private javax.swing.JFormattedTextField campoCpfCadastro;
     private javax.swing.JTextField campoItemCarrinho;
+    private javax.swing.JTextField campoLoginConfirmacao;
+    private javax.swing.JTextField campoLoginNovo;
     private javax.swing.JTextField campoNomeCadastro;
     private javax.swing.JTextField campoPontosCliente;
     private javax.swing.JTextField campoQuantidadeCarrinho;
+    private javax.swing.JPasswordField campoSenhaConfirmacao;
+    private javax.swing.JPasswordField campoSenhaNova;
+    private javax.swing.JPasswordField campoSenhaNovaConfirmacao;
     private javax.swing.JButton checarCesta;
     private javax.swing.JTextField descricaoCadastro;
     private javax.swing.JLabel jLabel1;
@@ -1926,9 +2133,17 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel telaVendas;
     private javax.swing.JLabel txtCpfCadastrado;
     private javax.swing.JLabel txtCpfCadastro;
+    private javax.swing.JLabel txtDinheiroAtual;
+    private javax.swing.JLabel txtDinheiroInicial;
+    private javax.swing.JLabel txtFundoPossui;
+    private javax.swing.JLabel txtLogin1;
+    private javax.swing.JLabel txtLogin2;
     private javax.swing.JLabel txtNomeClienteVendas;
     private javax.swing.JLabel txtQuantidadeItens1;
     private javax.swing.JLabel txtQuantidadeItens2;
+    private javax.swing.JLabel txtSenha;
+    private javax.swing.JLabel txtSenha2;
+    private javax.swing.JLabel txtSenha3;
     private javax.swing.JTextField valorGerenciamento;
     // End of variables declaration//GEN-END:variables
 }
