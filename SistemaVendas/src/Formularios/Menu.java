@@ -5,8 +5,12 @@
  */
 package Formularios;
 
+import static Classes.ValidaNome.ValidarNome;
+import static Classes.ValidaNumero.ValidarNumero;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,11 +26,15 @@ public class Menu extends javax.swing.JFrame {
     int quantidadeProduto[] = new int[maxProds];
     Double[] precoProduto = new Double[maxProds];
     
+    DefaultTableModel tabela;
+    
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        tabela = (DefaultTableModel) tabelaProdutos.getModel();
+        
         PainelGerenciamento.setVisible(true);
         PainelVenda.setVisible(false);
         PainelCadastro.setVisible(false);
@@ -60,6 +68,8 @@ public class Menu extends javax.swing.JFrame {
         caixaPontos = new javax.swing.JComboBox();
         PainelTrocaPontos = new javax.swing.JPanel();
         PainelEstoque = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaProdutos = new javax.swing.JTable();
         PainelCarrinho = new javax.swing.JPanel();
         PainelGerenciamento = new javax.swing.JPanel();
         produtoGerenciamento = new javax.swing.JComboBox();
@@ -220,15 +230,40 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel3.add(PainelTrocaPontos, "card9");
 
+        tabelaProdutos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Produto", "Preço", "Quantidade"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelaProdutos);
+
         javax.swing.GroupLayout PainelEstoqueLayout = new javax.swing.GroupLayout(PainelEstoque);
         PainelEstoque.setLayout(PainelEstoqueLayout);
         PainelEstoqueLayout.setHorizontalGroup(
             PainelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(PainelEstoqueLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         PainelEstoqueLayout.setVerticalGroup(
             PainelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(PainelEstoqueLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel3.add(PainelEstoque, "card10");
@@ -677,21 +712,30 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "ESCOLHA OS PONTOS NECESSARIOS");
             return;
         }
-       
+       if (ValidarNumero(precoCadastro.getText()) == false) {
+            JOptionPane.showMessageDialog(rootPane, "PREÇO INVALIDO");
+            return;
+        }
+        if (ValidarNome(descricaoCadastro.getText()) == false) {
+            JOptionPane.showMessageDialog(rootPane, "NOME INVALIDO");
+            return;
+        }
+        
         for (int i = 0; i < contaProds; i++) {
             if (descricaoCadastro.getText().equals(nomeProduto[i])) {
                 JOptionPane.showMessageDialog(rootPane, "PRODUTO JÁ CADASTRADO");
                 return;
             }
         }
-
+        
         nomeProduto[contaProds] = descricaoCadastro.getText();
         caixaVender.addItem(nomeProduto[contaProds]);
         produtoGerenciamento.addItem(nomeProduto[contaProds]);
         precoProduto[contaProds] = Double.parseDouble(precoCadastro.getText());
         pontosProduto[contaProds] = (String) caixaPontos.getSelectedItem();
 
-        
+        Object[] dados = {nomeProduto[contaProds], precoProduto[contaProds], quantidadeProduto[contaProds]};
+        tabela.addRow(dados);
 
         contaProds++;
         JOptionPane.showMessageDialog(rootPane, "PRODUTO CADASTRADO COM SUCESSO");
@@ -726,7 +770,41 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_valorGerenciamentoActionPerformed
 
     private void botaoAdicionarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarEstoqueActionPerformed
-        
+        if (produtoGerenciamento.getSelectedItem() == "") {
+            JOptionPane.showMessageDialog(rootPane, "NÃO A ITENS PARA ADICIONAR AO ESTOQUE");
+            return;
+        }
+        if (valorGerenciamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "INSIRA O VALOR DOS ITENS COMPRADOS");
+            return;
+        }
+        if (quantidadeGerenciamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "INSIRA A QUANTIDADE DE ITENS");
+            return;
+        }
+        if (ValidarNumero(quantidadeGerenciamento.getText()) == false) {
+            JOptionPane.showMessageDialog(rootPane, "QUANTIDADE INVALIDA");
+            return;
+        }
+        if (ValidarNumero(valorGerenciamento.getText()) == false) {
+            JOptionPane.showMessageDialog(rootPane, "VALOR INVALIDO");
+            return;
+        }
+
+        String nome = (String) produtoGerenciamento.getSelectedItem();
+        for (int i = 0; i < maxProds; i++) {
+            if (nomeProduto[i] == nome) {
+                quantidadeProduto[i] += Integer.parseInt(quantidadeGerenciamento.getText());
+            }
+        }
+
+        for (int i = 0; i < contaProds; i++) {
+            if (nome.equals(tabela.getValueAt(i, 0))) {
+                tabela.setValueAt(quantidadeProduto[i], i, 2);
+            }
+        }
+
+        JOptionPane.showMessageDialog(rootPane, "PRODUTO ADICIONADO AO ESTOQUE");
     }//GEN-LAST:event_botaoAdicionarEstoqueActionPerformed
 
     /**
@@ -800,6 +878,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuItem mnuCadastro;
@@ -815,6 +894,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JComboBox produtoGerenciamento;
     private javax.swing.JTextField quantidadeGerenciamento;
     private javax.swing.JTextField quantidadeVendas;
+    private javax.swing.JTable tabelaProdutos;
     private javax.swing.JTextField valorGerenciamento;
     // End of variables declaration//GEN-END:variables
 }
